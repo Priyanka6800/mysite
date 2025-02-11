@@ -1,7 +1,13 @@
 .banner{
     background-color: blue;
     padding: 20px;
+
+    img{
+        width: 100%;
+    }
 }
+
+
 
 .banner p{
     color: tomato;
