@@ -1,14 +1,8 @@
 .banner{
-    background-color: blue;
+    background-color: rgb(6, 131, 221);
     padding: 20px;
-
-    img{
-        width: 100%;
-    }
 }
 
-
-
 .banner p{
-    color: tomato;
+    color: white;
 }
