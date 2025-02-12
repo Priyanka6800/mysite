@@ -1,4 +1,4 @@
-function embedGoogleDriveVideo(link) {
+function DriveVideo(link) {
     const videoDiv = document.querySelector('.video');
 
     const iframe = document.createElement('iframe');
@@ -13,4 +13,4 @@ function embedGoogleDriveVideo(link) {
 }
 
 const driveLink = 'https://drive.google.com/file/d/1LcbxPiSGiSDzxCabKj9Gssoa0R54-6CU/preview';
-embedGoogleDriveVideo(driveLink);
+DriveVideo(driveLink);
