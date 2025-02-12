@@ -1,11 +1,6 @@
 function embedGoogleDriveVideo(link) {
     const videoDiv = document.querySelector('.video');
 
-    if (!videoDiv) {
-        console.error("Element with class 'video' not found.");
-        return;
-    }
-
     const iframe = document.createElement('iframe');
     iframe.setAttribute('src', link);
     iframe.setAttribute('width', '600');
