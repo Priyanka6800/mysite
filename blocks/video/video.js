@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const videoContainer = document.querySelector(".video"); 
-    const fileId = "1LcbxPiSGiSDzxCabKj9Gssoa0R54-6CU"; 
-    const videoSrc = `https://drive.google.com/file/d/${fileId}/preview`;
+    // const fileId = "1LcbxPiSGiSDzxCabKj9Gssoa0R54-6CU"; 
+    const videoSrc = `https://drive.google.com/file/d/1LcbxPiSGiSDzxCabKj9Gssoa0R54-6CU/preview`;
 
    
     const iframe = document.createElement("iframe");
