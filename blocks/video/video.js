@@ -1,8 +1,10 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const videoElement = document.querySelector(".video");
-    // const fileId = "1LcbxPiSGiSDzxCabKj9Gssoa0R54-6CU"; 
-    const videoSrc = 'https://drive.google.com/file/d/1LcbxPiSGiSDzxCabKj9Gssoa0R54-6CU/preview';
-    
-    
-    videoElement.src = videoSrc;
-});
+function embedGoogleDriveVideo(link) {
+    const embedLink = link;
+    const iframe = document.createElement('iframe');
+    iframe.setAttribute('src', embedLink);
+    const videoDiv = document.querySelector('.video');
+    videoDiv.innerHTML = '';
+    videoDiv.appendChild(iframe);
+}
+const driveLink = 'https://drive.google.com/file/d/1LcbxPiSGiSDzxCabKj9Gssoa0R54-6CU/preview';
+embedGoogleDriveVideo(driveLink);
