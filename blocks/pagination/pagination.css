@@ -1,40 +1,66 @@
-
+/* Centering the table */
 .styled-table {
-    width: 50%;
     border-collapse: collapse;
-    margin-top: 20px;
+    width: 80%;
+    margin: 20px auto;
     font-family: Arial, sans-serif;
-    font-size: 16px;  
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
-.styled-table th, 
-.styled-table td {
-    border: 1px solid #ddd;
-    padding: 10px;
-    text-align: left;
-}
-
+/* Styling table headers */
 .styled-table th {
     background-color: #4CAF50;
     color: white;
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
 }
 
-.even-row {
+/* Styling table rows */
+.styled-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    font-size: 14px;
+}
+
+/* Zebra striping for rows */
+.styled-table tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-.odd-row {
-    background-color: #ffffff;
+/* Hover effect */
+.styled-table tr:hover {
+    background-color: #f1f1f1;
 }
 
-.show-more-btn {
-    background-color: #007BFF;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
+/* Pagination container */
+.pagination-container {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Pagination text */
+.total-text {
+    font-weight: bold;
     font-size: 16px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    margin-bottom: 10px;
 }
 
+/* Show More button */
+.show-more-btn {
+    padding: 10px 15px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.show-more-btn:hover {
+    background-color: #45a049;
+}

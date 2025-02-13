@@ -1,24 +1,16 @@
 export default async function decorate(block) {
-    if (!block) {
-        console.error("Block element not found");
-        return;
-    }
-
     try {
         const response = await fetch("http://localhost:3000/products.json");
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
 
         const data = await response.json();
-        console.log("Fetched Data:", data);
+        const products = data.data;
 
-        if (!data.data || !Array.isArray(data.data) || data.data.length === 0) {
-            console.error("Fetched data is not an array or is empty:", data);
+        if (!Array.isArray(products) || products.length === 0) {
+            console.error("No products found.");
             return;
         }
 
-        const products = data.data;
         let itemsPerPage = 20;
         let displayedItems = itemsPerPage;
 
@@ -26,46 +18,44 @@ export default async function decorate(block) {
             block.innerHTML = ""; 
             const visibleProducts = products.slice(0, displayedItems);
 
-    
             const table = document.createElement("table");
-            table.classList.add("styled-table"); 
+            table.classList.add("styled-table");
 
             const thead = document.createElement("thead");
             const headerRow = document.createElement("tr");
 
-            const headers = Object.keys(visibleProducts[0]);
-            headers.forEach((header) => {
+            Object.keys(products[0]).forEach(header => {
                 const th = document.createElement("th");
                 th.textContent = header;
                 headerRow.appendChild(th);
             });
+
             thead.appendChild(headerRow);
             table.appendChild(thead);
 
             const tbody = document.createElement("tbody");
-            visibleProducts.forEach((item, index) => {
+            visibleProducts.forEach(item => {
                 const row = document.createElement("tr");
-                row.classList.add(index % 2 === 0 ? "even-row" : "odd-row"); 
-                Object.values(item).forEach((value) => {
+                Object.values(item).forEach(value => {
                     const td = document.createElement("td");
                     td.textContent = value;
                     row.appendChild(td);
                 });
                 tbody.appendChild(row);
             });
-            table.appendChild(tbody);
 
+            table.appendChild(tbody);
             block.appendChild(table);
             renderPagination();
         }
 
         function renderPagination() {
-            const paginationContainer = document.createElement("div");
-            paginationContainer.classList.add("pagination-container");
+            const paginationDiv = document.createElement("div");
+            paginationDiv.classList.add("pagination-container");
 
-            const totalLoaded = document.createElement("p");
-            totalLoaded.textContent = `Showing ${displayedItems} of ${products.length} products`;
-            totalLoaded.classList.add("total-text");
+            const totalText = document.createElement("p");
+            totalText.textContent = `Showing ${displayedItems} of ${products.length} products`;
+            totalText.classList.add("total-text");
 
             const showMoreButton = document.createElement("button");
             showMoreButton.textContent = "Show More";
@@ -77,9 +67,9 @@ export default async function decorate(block) {
                 renderTable();
             });
 
-            paginationContainer.appendChild(totalLoaded);
-            paginationContainer.appendChild(showMoreButton);
-            block.appendChild(paginationContainer);
+            paginationDiv.appendChild(totalText);
+            paginationDiv.appendChild(showMoreButton);
+            block.appendChild(paginationDiv);
         }
 
         renderTable();

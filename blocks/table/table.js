@@ -37,7 +37,6 @@ export default async function decorate(block) {
         thead.appendChild(headerRow);
         table.appendChild(thead);
 
-        // Create table body
         const tbody = document.createElement("tbody");
         products.forEach((item, index) => {
             const row = document.createElement("tr");
