@@ -32,9 +32,9 @@ export default async function decorate(block) {
         const data = Object.fromEntries(formData.entries());
 
         try {
-            const response = await fetch("http://localhost:3000/submit", {
+            const response = await fetch("https://main--mysite--priyanka6800.aem.live/form.json", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: { "Content-Type": "form/json" },
                 body: JSON.stringify(data),
             });
             
