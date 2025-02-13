@@ -1,30 +1,17 @@
-
-
-function buildCell(rowIndex) {
-    const cell = rowIndex ? document.createElement('td') : document.createElement('th');
-    if (!rowIndex) cell.setAttribute('scope', 'col');
-    return cell;
-  }
-  
-  export default async function decorate(block) {
-    const table = document.createElement('table');
-    const thead = document.createElement('thead');
-    const tbody = document.createElement('tbody');
-  
-    const header = !block.classList.contains('no-header');
-    if (header) table.append(thead);
-    table.append(tbody);
-  
-    [...block.children].forEach((child, i) => {
-      const row = document.createElement('tr');
-      if (header && i === 0) thead.append(row);
-      else tbody.append(row);
-      [...child.children].forEach((col) => {
-        const cell = buildCell(header ? i : i + 1);
-        cell.innerHTML = col.innerHTML;
-        row.append(cell);
-      });
-    });
-    block.innerHTML = '';
-    block.append(table);
-  }
+fetch("https://main--mysite--priyanka6800.aem.page/products.json")
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log("Fetched Data:", data);
+  })
+  .catch(error => {
+    if (error.name === "TypeError") {
+      console.error("Network error or CORS issue:", error);
+    } else {
+      console.error("Error fetching data:", error);
+    }
+  });
