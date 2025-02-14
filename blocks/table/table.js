@@ -20,11 +20,11 @@ export default async function decorate(block) {
 
         const products = data.data;
 
-    
-        const table = document.createElement("table");
-        table.classList.add("styled-table"); 
 
-   
+        const table = document.createElement("table");
+        table.classList.add("styled-table");
+
+
         const thead = document.createElement("thead");
         const headerRow = document.createElement("tr");
 
@@ -40,7 +40,7 @@ export default async function decorate(block) {
         const tbody = document.createElement("tbody");
         products.forEach((item, index) => {
             const row = document.createElement("tr");
-            row.classList.add(index % 2 === 0 ? "even-row" : "odd-row"); 
+            row.classList.add(index % 2 === 0 ? "even-row" : "odd-row");
             Object.values(item).forEach((value) => {
                 const td = document.createElement("td");
                 td.textContent = value;

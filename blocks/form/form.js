@@ -34,7 +34,7 @@ export default async function decorate(block) {
         try {
             const response = await fetch("https://main--mysite--priyanka6800.aem.live/form.json", {
                 method: "POST",
-                headers: { "Content-Type": "form/json" },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data),
             });
             
